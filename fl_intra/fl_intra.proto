@@ -4,8 +4,8 @@ package flIntra;
 
 // Sending client count to Coordinator
 message ClientCount {
-	int64 count = 1;
-    int64 id = 2;
+	uint32 count = 1;
+    uint32 id = 2;
 }
 
 message Empty {
@@ -29,10 +29,13 @@ message FlData {
 	Type type = 3;
 }
 
+message FlClientStatus {
+	bool accepted = 1;
+}
+
 // Service for intra server co-ordination
 service FlIntra {
-	rpc ClientCountUpdate(ClientCount) returns (Empty) {}
-	rpc BeginConfiguration(Empty) returns (Empty) {}
+	rpc ClientCountUpdate(ClientCount) returns (FlClientStatus) {}
 	rpc Update(stream FlData) returns (FlData) {}
 }
 
