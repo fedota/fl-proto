@@ -35,3 +35,8 @@ service FlIntra {
 	rpc BeginConfiguration(Empty) returns (Empty) {}
 	rpc Update(stream FlData) returns (FlData) {}
 }
+
+// Service for broadcasting info from co-ordinator to other servers
+service FLGoalCountBroadcast {
+	rpc GoalCountReached(Empty) returns (Empty) {}
+}
