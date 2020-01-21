@@ -8,25 +8,11 @@ message ClientCount {
     uint32 id = 2;
 }
 
+message SelectorId {
+	uint32 id = 1;
+}
+
 message Empty {
-}
-
-// Chunk of bytes
-message Chunk {
-	bytes content = 1;
-}
-
-// Type of Fl Data
-enum Type {
-	FL_CHECKPOINT_UPDATE = 0;
-	FL_RECONN_TIME = 1;
-	FL_CHECKPOINT_WEIGHT = 2; 
-}
-
-message FlData {
-	Chunk message = 1;
-	int64 intVal =  2;
-	Type type = 3;
 }
 
 message FlClientStatus {
@@ -36,10 +22,10 @@ message FlClientStatus {
 // Service for intra server co-ordination
 service FlIntra {
 	rpc ClientCountUpdate(ClientCount) returns (FlClientStatus) {}
-	rpc Update(stream FlData) returns (FlData) {}
+	rpc SelectorAggregationComplete(SelectorId) returns (Empty) {}
 }
 
-// Service for broadcasting info from co-ordinator to other servers
+// Service for broadcasting info from co-ordinator to other selectors
 service FLGoalCountBroadcast {
 	rpc GoalCountReached(Empty) returns (Empty) {}
 }
