@@ -5,11 +5,11 @@ package flIntra;
 // Sending client count to Coordinator
 message ClientCount {
 	uint32 count = 1;
-    uint32 id = 2;
+    string id = 2;
 }
 
 message SelectorId {
-	uint32 id = 1;
+	string id = 1;
 }
 
 message Empty {
