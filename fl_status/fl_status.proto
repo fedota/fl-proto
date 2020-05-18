@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "./fl_status";
+
+// stages of fl round
+enum Stages {
+	SELECTION = 0;
+	CONFIGURATION = 1;
+	REPORTING = 2;
+	COMPLETED = 3;
+}
+
+// FLRoundStatus
+message FLRoundStatus {
+	Stages stage = 1;
+	uint32 roundNo = 2;
+}
+
+message Empty {
+}
+
+// Service for getting status of fl round from the coordinator to the webserver
+service FlStatus {
+	rpc getRoundStatus(Empty) returns (FLRoundStatus) {}
+}

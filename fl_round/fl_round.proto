@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package flRound;
+option go_package = "./fl_round";
 
 // Client CheckIn Ping 
-// Currently, only a string message
+// Currently, only a string message 
 message CheckInRequest {
 	string message = 1;
 }
@@ -11,10 +11,10 @@ message CheckInRequest {
 // Type of Fl Data
 enum Type {
 	FL_FILES = 0;
-	FL_INT = 2;
+	FL_INT = 1;
 }
 
-// FL Data: For communication between client and server
+// FL Data: For communication between client and selector
 message FlData {
 	bytes chunk = 1;
 	int64 intVal =  2;
@@ -23,7 +23,7 @@ message FlData {
 	string filePath = 5;
 }
 
-// Servive for a FL Round
+// Service for a FL Round
 service FlRound {
 	rpc CheckIn(stream CheckInRequest) returns (stream FlData) {}
 	rpc Update(stream FlData) returns (FlData) {}

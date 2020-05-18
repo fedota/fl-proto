@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package flIntra;
+option go_package = "./fl_intra";
 
 // Sending client count to Coordinator
 message ClientCount {
 	uint32 count = 1;
-    string id = 2;
+	string id = 2;
 }
 
 message SelectorId {
