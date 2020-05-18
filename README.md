@@ -10,7 +10,7 @@ Protocol Buffer 3 definintions for the gRPC service calls used in Fedota
 go mod init github.com/fedota/fl-proto
 
 cd fl_status
-git mod init github.com/fedota/fl-proto/fl_status
+go mod init github.com/fedota/fl-proto/fl_status
 cd ..
 git add 
 ```
