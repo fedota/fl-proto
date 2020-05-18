@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option go_package = "./fl_status";
+// option go_package = "fl_status/flStatus";
+option go_package = "fl_status;flStatus";
 
 // stages of fl round
 enum Stages {

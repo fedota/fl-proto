@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option go_package = "./fl_round";
+// option go_package = "fl_round/flRound";
+option go_package = "fl_round;flRound";
 
 // Client CheckIn Ping 
 // Currently, only a string message 

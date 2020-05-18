@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option go_package = "./fl_intra";
+// option go_package = "fl_intra/flIntra";
+option go_package = "fl_intra;flIntra";
 
 // Sending client count to Coordinator
 message ClientCount {
