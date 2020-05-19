@@ -12,15 +12,15 @@ enum Stages {
 }
 
 // FLRoundStatus
-message FLRoundStatus {
+message FlRoundStatus {
 	Stages stage = 1;
 	uint32 roundNo = 2;
 }
 
-message Empty {
+message NULL {
 }
 
 // Service for getting status of fl round from the coordinator to the webserver
 service FlStatus {
-	rpc getRoundStatus(Empty) returns (FLRoundStatus) {}
+	rpc RoundStatus(FlRoundStatus) returns (NULL) {}
 }
